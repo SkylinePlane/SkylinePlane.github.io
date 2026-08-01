@@ -33,14 +33,14 @@ window.SITE_CONFIG = {
 
   // Width of the heart brush, in pixels, on a large screen.
   // It scales down automatically on smaller ones.
-  brushSize: 120,
+  brushSize: 100,
 
   // How much of the picture has to be rubbed away before the rest
   // dissolves on its own. 0.55 = 55%.
-  revealThreshold: 0.55,
+  revealThreshold: 0.60,
 
   // After the last picture, go back to the first one and keep going.
-  loop: true,
+  loop: false,
 
   // Softly feathered brush edges. Set to false for a hard-edged cut-out.
   softEdge: true
