@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <radialGradient id="b1" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#ffd7e6"/>
+      <stop offset="100%" stop-color="#e8537a"/>
+    </radialGradient>
+    <radialGradient id="b2" cx="35%" cy="30%" r="72%">
+      <stop offset="0%" stop-color="#e5d4ff"/>
+      <stop offset="100%" stop-color="#7a4dd8"/>
+    </radialGradient>
+    <radialGradient id="b3" cx="40%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#ffe9c9"/>
+      <stop offset="100%" stop-color="#f0954f"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="#fdf3f6"/>
+
+  <g opacity="0.88">
+    <circle cx="430" cy="360" r="250" fill="url(#b1)"/>
+    <circle cx="760" cy="470" r="210" fill="url(#b2)" opacity="0.85"/>
+    <circle cx="600" cy="240" r="140" fill="url(#b3)" opacity="0.8"/>
+    <circle cx="950" cy="250" r="96" fill="#e8537a" opacity="0.4"/>
+    <circle cx="240" cy="620" r="120" fill="#7a4dd8" opacity="0.35"/>
+    <circle cx="880" cy="690" r="72" fill="#f0954f" opacity="0.45"/>
+  </g>
+
+  <g stroke="#c33a5f" stroke-width="2.5" fill="none" opacity="0.45">
+    <circle cx="430" cy="360" r="300"/>
+    <circle cx="760" cy="470" r="262"/>
+  </g>
+
+  <text x="60" y="836" font-family="Georgia, 'Times New Roman', serif" font-size="34"
+        fill="#5b2338" opacity="0.85">03 &#183; Bloom</text>
+  <text x="60" y="872" font-family="Helvetica, Arial, sans-serif" font-size="19"
+        fill="#5b2338" opacity="0.55">placeholder &#8212; swap me out</text>
+</svg>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rub to Reveal</title>
+<meta name="description" content="Rub away each image with a heart-shaped cursor to reveal the one underneath.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e8537a' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="page-head">
+  <h1 id="site-title">Rub to Reveal</h1>
+  <p id="site-subtitle" class="subtitle">Scrub across the picture with your heart to wear it away.</p>
+</header>
+
+<main>
+  <div class="stage-wrap">
+    <div id="stage" class="stage" tabindex="0" role="application"
+         aria-label="Rub away the picture with your pointer to reveal the next one. Press Enter to reveal it without rubbing.">
+      <canvas id="below" class="layer below"></canvas>
+      <canvas id="scratch" class="layer scratch"></canvas>
+      <div id="sparkles" class="sparkles" aria-hidden="true"></div>
+      <p id="stage-message" class="stage-message" hidden></p>
+    </div>
+
+    <!-- The heart that follows the pointer. Sized to match the brush. -->
+    <div id="cursor" class="heart-cursor" aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="hud">
+    <div class="progress" role="progressbar" aria-labelledby="progress-label"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress">
+      <span id="progress-label" class="sr-only">Amount rubbed away</span>
+      <div id="progress-fill" class="progress-fill"></div>
+    </div>
+
+    <div class="meta">
+      <p id="caption" class="caption"></p>
+      <p id="counter" class="counter"></p>
+    </div>
+
+    <div class="controls">
+      <button id="reveal-btn" type="button" class="btn">Reveal this one</button>
+      <button id="restart-btn" type="button" class="btn btn-quiet">Start over</button>
+    </div>
+
+    <p id="hint" class="hint"></p>
+  </div>
+
+  <p id="live" class="sr-only" aria-live="polite"></p>
+</main>
+
+<footer class="page-foot">
+  <p>Hold down and scrub &mdash; works with a mouse, a trackpad, or a finger.</p>
+</footer>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

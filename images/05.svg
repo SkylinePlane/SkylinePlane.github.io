@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6efdc"/>
+      <stop offset="100%" stop-color="#e3d7b6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#field)"/>
+
+  <g stroke="#3f5a3c" stroke-width="1" opacity="0.16">
+    <path d="M100 0 V900 M200 0 V900 M300 0 V900 M400 0 V900 M500 0 V900 M600 0 V900
+             M700 0 V900 M800 0 V900 M900 0 V900 M1000 0 V900 M1100 0 V900"/>
+    <path d="M0 100 H1200 M0 200 H1200 M0 300 H1200 M0 400 H1200 M0 500 H1200
+             M0 600 H1200 M0 700 H1200 M0 800 H1200"/>
+  </g>
+
+  <g fill="#3f5a3c" opacity="0.85">
+    <rect x="140" y="300" width="180" height="180" rx="10"/>
+    <circle cx="520" cy="290" r="96"/>
+    <path d="M760 200 L900 440 L620 440 Z"/>
+  </g>
+
+  <g fill="#c9922f" opacity="0.9">
+    <rect x="180" y="560" width="300" height="26" rx="13"/>
+    <rect x="180" y="616" width="220" height="26" rx="13"/>
+    <rect x="180" y="672" width="380" height="26" rx="13"/>
+  </g>
+
+  <g fill="none" stroke="#a8452c" stroke-width="6" opacity="0.8">
+    <circle cx="900" cy="620" r="88"/>
+    <path d="M812 620 H988 M900 532 V708"/>
+  </g>
+
+  <text x="60" y="836" font-family="Georgia, 'Times New Roman', serif" font-size="34"
+        fill="#3a3524" opacity="0.85">05 &#183; Field notes</text>
+  <text x="60" y="872" font-family="Helvetica, Arial, sans-serif" font-size="19"
+        fill="#3a3524" opacity="0.55">placeholder &#8212; swap me out</text>
+</svg>
