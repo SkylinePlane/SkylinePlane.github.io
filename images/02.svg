@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dff1ee"/>
+      <stop offset="40%" stop-color="#7fc4bd"/>
+      <stop offset="100%" stop-color="#0f4c56"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#water)"/>
+
+  <g fill="none" stroke="#eaf7f4" stroke-linecap="round">
+    <path d="M-40 250 Q 150 214 340 250 T 720 250 T 1100 250 T 1280 250" stroke-width="7" opacity="0.5"/>
+    <path d="M-40 336 Q 170 296 380 336 T 800 336 T 1240 336" stroke-width="6" opacity="0.42"/>
+    <path d="M-40 428 Q 190 384 420 428 T 880 428 T 1280 428" stroke-width="5" opacity="0.34"/>
+    <path d="M-40 528 Q 210 480 460 528 T 960 528 T 1280 528" stroke-width="4" opacity="0.26"/>
+    <path d="M-40 636 Q 230 586 500 636 T 1040 636 T 1280 636" stroke-width="3" opacity="0.2"/>
+  </g>
+
+  <ellipse cx="880" cy="742" rx="230" ry="46" fill="#0a3840" opacity="0.5"/>
+  <ellipse cx="300" cy="800" rx="270" ry="52" fill="#0a3840" opacity="0.4"/>
+
+  <g fill="#f4fbf9" opacity="0.9">
+    <circle cx="252" cy="164" r="66"/>
+  </g>
+  <g fill="#0f4c56" opacity="0.16">
+    <circle cx="252" cy="164" r="66"/>
+  </g>
+
+  <text x="60" y="836" font-family="Georgia, 'Times New Roman', serif" font-size="34"
+        fill="#eafaf7" opacity="0.9">02 &#183; Low tide</text>
+  <text x="60" y="872" font-family="Helvetica, Arial, sans-serif" font-size="19"
+        fill="#eafaf7" opacity="0.6">placeholder &#8212; swap me out</text>
+</svg>

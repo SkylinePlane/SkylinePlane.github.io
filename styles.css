@@ -1,0 +1,318 @@
+/* --------------------------------------------------------------------------
+   Rub to Reveal
+   -------------------------------------------------------------------------- */
+
+:root {
+  --ar: 1.3333;                 /* aspect ratio as a number, set from config.js */
+  --brush: 120px;               /* brush width, kept in sync by script.js       */
+
+  --bg: #fbf7f6;
+  --bg-elev: #ffffff;
+  --ink: #2a2124;
+  --ink-soft: #6d6167;
+  --line: #e8dfe0;
+  --heart: #e8537a;
+  --heart-deep: #c33a5f;
+  --focus: #7a4dd8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161214;
+    --bg-elev: #211b1f;
+    --ink: #f3ecee;
+    --ink-soft: #a99ba1;
+    --line: #362c31;
+    --heart: #ff6f93;
+    --heart-deep: #e8537a;
+    --focus: #b79bff;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: clamp(1.25rem, 4vw, 3rem) clamp(1rem, 4vw, 2rem) 3rem;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  min-height: 100vh;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Header --------------------------------------------------------------- */
+
+.page-head {
+  text-align: center;
+  max-width: 44ch;
+}
+
+.page-head h1 {
+  margin: 0 0 .35rem;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: clamp(.95rem, 2.2vw, 1.05rem);
+}
+
+main {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* ---- The picture frame ---------------------------------------------------- */
+
+.stage-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.stage {
+  position: relative;
+  width: min(100%, calc(62vh * var(--ar)));
+  aspect-ratio: var(--ar);
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg-elev);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, .06),
+    0 18px 40px -12px rgba(60, 20, 40, .28);
+  touch-action: none;               /* let us scrub without scrolling the page */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: none;                     /* replaced by the heart follower */
+  outline: none;
+}
+
+.stage:focus-visible {
+  box-shadow:
+    0 0 0 3px var(--bg), 0 0 0 6px var(--focus),
+    0 18px 40px -12px rgba(60, 20, 40, .28);
+}
+
+/* No pointer to follow (touch-only, or the pointer is off the frame) —
+   fall back to a plain cursor so nothing feels broken. */
+.stage.no-follower { cursor: default; }
+
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.below   { z-index: 1; }
+.scratch { z-index: 2; opacity: 1; transition: opacity .7s ease; }
+
+.stage.revealing .scratch { opacity: 0; }
+.stage.instant   .scratch { transition: none; }
+
+.stage-message {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 3;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  font-size: .95rem;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, .72), rgba(0, 0, 0, 0));
+}
+
+/* ---- Heart cursor --------------------------------------------------------- */
+
+.heart-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: var(--brush);
+  height: var(--brush);
+  margin: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-999px, -999px, 0);
+  transition: opacity .18s ease;
+  will-change: transform;
+}
+
+.heart-cursor.visible { opacity: 1; }
+
+.heart-cursor svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: var(--heart);
+  fill-opacity: .42;
+  stroke: #fff;
+  stroke-width: 1.1;
+  stroke-opacity: .95;
+  filter: drop-shadow(0 2px 7px rgba(0, 0, 0, .4));
+  transform: scale(var(--press, 1));
+  transform-origin: 50% 50%;
+  transition: transform .12s ease, fill-opacity .12s ease;
+}
+
+.heart-cursor.pressing svg {
+  --press: .88;
+  fill-opacity: .65;
+}
+
+/* ---- Floating hearts on a reveal ------------------------------------------ */
+
+.sparkles {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.spark {
+  position: absolute;
+  bottom: -10%;
+  width: 22px;
+  height: 22px;
+  color: var(--heart);
+  opacity: 0;
+  animation: rise 1.5s ease-out forwards;
+}
+
+.spark svg { width: 100%; height: 100%; fill: currentColor; display: block; }
+
+@keyframes rise {
+  0%   { opacity: 0; transform: translateY(0) scale(.5) rotate(0deg); }
+  15%  { opacity: .9; }
+  100% { opacity: 0; transform: translateY(-115%) scale(1.15) rotate(var(--spin, 20deg)); }
+}
+
+/* ---- Readout below the frame ---------------------------------------------- */
+
+.hud {
+  width: min(100%, calc(62vh * var(--ar)));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .85rem;
+}
+
+.progress {
+  width: 100%;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--heart), var(--heart-deep));
+  transition: width .12s linear;
+}
+
+.meta {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.caption {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 550;
+}
+
+.counter {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: .9rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  justify-content: center;
+}
+
+.btn {
+  font: inherit;
+  font-weight: 550;
+  padding: .6rem 1.1rem;
+  border-radius: 99px;
+  border: 1px solid transparent;
+  background: var(--heart);
+  color: #fff;
+  cursor: pointer;
+  transition: transform .1s ease, filter .15s ease, opacity .15s ease;
+}
+
+.btn:hover  { filter: brightness(1.06); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+.btn[disabled]:hover { filter: none; }
+
+.btn-quiet {
+  background: transparent;
+  color: var(--ink-soft);
+  border-color: var(--line);
+}
+
+.hint {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: .875rem;
+  text-align: center;
+}
+
+.page-foot {
+  color: var(--ink-soft);
+  font-size: .8rem;
+  text-align: center;
+}
+
+.page-foot p { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .scratch { transition-duration: .01ms; }
+  .spark { display: none; }
+  .heart-cursor, .heart-cursor svg, .progress-fill, .btn { transition-duration: .01ms; }
+}
