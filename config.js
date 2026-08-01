@@ -12,10 +12,10 @@ window.SITE_CONFIG = {
 
   // Shown at the top of the page.
   title: "Rub to Reveal",
-  subtitle: "Scrub across the picture with your heart to wear it away.",
+  subtitle: //"Scrub across the picture with your heart to wear it away.",
 
   // The little line of instructions under the buttons.
-  hint: "Click and drag across the image — or drag with a finger on a phone.",
+  hint: //"Click and drag across the image — or drag with a finger on a phone.",
 
   images: [
     { src: "images/01.svg", caption: "First light" },
