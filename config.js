@@ -12,7 +12,7 @@ window.SITE_CONFIG = {
 
   // Shown at the top of the page.Scrub across the picture with your heart to wear it away.
   title: "Scratch to Reveal ❤",
-  subtitle: "",
+  subtitle: "From Ed to Yas xx",
 
   // The little line of instructions under the buttons.Click and drag across the image — or drag with a finger on a phone.
   hint: "",
