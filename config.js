@@ -18,11 +18,19 @@ window.SITE_CONFIG = {
   hint: "",
 
   images: [
-    { src: "images/01.svg", caption: "First light" },
-    { src: "images/02.svg", caption: "Low tide" },
-    { src: "images/03.svg", caption: "Bloom" },
-    { src: "images/04.svg", caption: "Small hours" },
-    { src: "images/05.svg", caption: "Field notes" }
+    { src: "images/1.png"},
+    { src: "images/2.png"},
+    { src: "images/3.png"},
+    { src: "images/4.png"},
+    { src: "images/5.png"},
+    { src: "images/6.png"},
+    { src: "images/7.png"},
+    { src: "images/8.png"},
+    { src: "images/9.png"},
+    { src: "images/10.png"},
+    { src: "images/11.png"},
+    { src: "images/12.png"},
+    { src: "images/13.png"}
   ],
 
   // ---- Look and feel -------------------------------------------------------
