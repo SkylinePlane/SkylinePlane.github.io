@@ -37,7 +37,7 @@ window.SITE_CONFIG = {
 
   // Shape of the frame. Pictures are cropped to fill it, centred.
   // Try "4 / 3", "3 / 2", "16 / 9" or "1 / 1".
-  aspectRatio: "4 / 3",
+  aspectRatio: "16 / 9",
 
   // Width of the heart brush, in pixels, on a large screen.
   // It scales down automatically on smaller ones.
