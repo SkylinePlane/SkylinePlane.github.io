@@ -11,7 +11,7 @@
 window.SITE_CONFIG = {
 
   // Shown at the top of the page.Scrub across the picture with your heart to wear it away.
-  title: "Rub to Reveal",
+  title: "Scratch to Reveal ❤",
   subtitle: "",
 
   // The little line of instructions under the buttons.Click and drag across the image — or drag with a finger on a phone.
