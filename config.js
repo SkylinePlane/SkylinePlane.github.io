@@ -18,19 +18,19 @@ window.SITE_CONFIG = {
   hint: "",
 
   images: [
-    { src: "images/1.png"},
-    { src: "images/2.png"},
-    { src: "images/3.png"},
-    { src: "images/4.png"},
-    { src: "images/5.png"},
-    { src: "images/6.png"},
-    { src: "images/7.png"},
-    { src: "images/8.png"},
-    { src: "images/9.png"},
-    { src: "images/10.png"},
-    { src: "images/11.png"},
-    { src: "images/12.png"},
-    { src: "images/13.png"}
+    { src: "images/1.png", caption: ""},
+    { src: "images/2.png", caption: ""},
+    { src: "images/3.png", caption: ""},
+    { src: "images/4.png", caption: ""},
+    { src: "images/5.png", caption: ""},
+    { src: "images/6.png", caption: ""},
+    { src: "images/7.png", caption: ""},
+    { src: "images/8.png", caption: ""},
+    { src: "images/9.png", caption: ""},
+    { src: "images/10.png", caption: ""},
+    { src: "images/11.png", caption: ""},
+    { src: "images/12.png", caption: ""},
+    { src: "images/13.png", caption: ""}
   ],
 
   // ---- Look and feel -------------------------------------------------------
